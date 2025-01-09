@@ -1,6 +1,7 @@
 interface Task {
   id: number;
   text: string;
+  lang: string;
   summary: string | null;
 }
 
@@ -8,10 +9,11 @@ export class TasksRepository {
   private tasks: Task[] = [];
   private currentId: number = 1;
 
-  createTask(text: string): Task {
+  createTask(text: string, lang: string): Task {
     const task: Task = {
       id: this.currentId++,
       text,
+      lang,
       summary: null
     };
     this.tasks.push(task);
